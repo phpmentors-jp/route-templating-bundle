@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <!-- Classes -->
+    <parameter key="phpmentors_route_templating.yaml_file_loader.class">PHPMentors\RouteTemplatingBundle\Routing\Loader\YamlFileLoader</parameter>
+    <!-- Configuration parameters -->
+  </parameters>
+  <services>
+    <service id="phpmentors_route_templating.yaml_file_loader" class="%phpmentors_route_templating.yaml_file_loader.class%" public="false">
+      <argument type="service" id="file_locator"/>
+      <tag name="routing.loader"/>
+    </service>
+  </services>
+</container>
