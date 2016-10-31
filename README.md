@@ -18,7 +18,7 @@ A Symfony bundle for route templating
 First, add the dependency to `phpmentors/route-templating-bundle` into your `composer.json` file as the following:
 
 ```
-composer require phpmentors/route-templating-bundle "~1.0@dev"
+composer require phpmentors/route-templating-bundle "1.0.*"
 ```
 
 Second, add `PHPMentorsRouteTemplatingBundle` into your bundles to register in `AppKernel::registerBundles()` as the following:
