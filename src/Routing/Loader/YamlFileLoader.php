@@ -33,9 +33,9 @@ class YamlFileLoader extends \Symfony\Component\Routing\Loader\YamlFileLoader
                 $routeCollection->add($copyAs.$name, $route);
                 $routeCollection->remove($name);
             }
-
-            array_pop($this->copyAs);
         }
+
+        array_pop($this->copyAs);
 
         return $routeCollection;
     }
