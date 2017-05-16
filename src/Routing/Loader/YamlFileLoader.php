@@ -17,9 +17,9 @@ use Symfony\Component\Routing\RouteCollection;
 class YamlFileLoader extends \Symfony\Component\Routing\Loader\YamlFileLoader
 {
     /**
-     * @var string
+     * @var array
      */
-    private $copyAs;
+    private $copyAs = [];
 
     /**
      * {@inheritdoc}
@@ -27,13 +27,14 @@ class YamlFileLoader extends \Symfony\Component\Routing\Loader\YamlFileLoader
     public function import($resource, $type = null, $ignoreErrors = false, $sourceResource = null)
     {
         $routeCollection = parent::import($resource, $type, $ignoreErrors, $sourceResource);
-        if ($this->copyAs !== null) {
+        $copyAs = $this->copyAs[count($this->copyAs) - 1];
+        if ($copyAs !== null) {
             foreach ($routeCollection->all() as $name => $route) {
-                $routeCollection->add($this->copyAs.$name, $route);
+                $routeCollection->add($copyAs.$name, $route);
                 $routeCollection->remove($name);
             }
 
-            $this->copyAs = null;
+            array_pop($this->copyAs);
         }
 
         return $routeCollection;
@@ -61,7 +62,7 @@ class YamlFileLoader extends \Symfony\Component\Routing\Loader\YamlFileLoader
      */
     protected function parseImport(RouteCollection $collection, array $config, $path, $file)
     {
-        $this->copyAs = isset($config['copy_as']) ? $config['copy_as'] : null;
+        $this->copyAs[] = isset($config['copy_as']) ? $config['copy_as'] : null;
 
         parent::parseImport($collection, $config, $path, $file);
     }
