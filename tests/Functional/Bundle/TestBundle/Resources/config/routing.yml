@@ -1,0 +1,9 @@
+a:
+    path: /a
+#    defaults: { _controller: "TestBundle:UrlRewritingInControllers:index" }
+#    methods: [GET]
+
+b:
+    path: /b
+#    defaults: { _controller: "TestBundle:UrlRewritingInTemplates:index" }
+#    methods: [GET]
