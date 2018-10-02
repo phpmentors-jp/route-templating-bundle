@@ -5,6 +5,7 @@ A Symfony bundle for route templating
 [![Total Downloads](https://poser.pugx.org/phpmentors/route-templating-bundle/downloads)](https://packagist.org/packages/phpmentors/route-templating-bundle)
 [![Latest Stable Version](https://poser.pugx.org/phpmentors/route-templating-bundle/v/stable)](https://packagist.org/packages/phpmentors/route-templating-bundle)
 [![Latest Unstable Version](https://poser.pugx.org/phpmentors/route-templating-bundle/v/unstable)](https://packagist.org/packages/phpmentors/route-templating-bundle)
+[![Build Status](https://travis-ci.com/phpmentors-jp/route-templating-bundle.svg?branch=master)](https://travis-ci.com/phpmentors-jp/route-templating-bundle)
 
 ## Features
 
