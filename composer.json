@@ -19,6 +19,7 @@
         "symfony/routing": "~2.8|~3.0"
     },
     "require-dev": {
+        "ext-dom": "*",
         "phpunit/phpunit": "~4.0"
     },
     "autoload": {
