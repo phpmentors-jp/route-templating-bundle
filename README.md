@@ -1,4 +1,4 @@
-# PHPMentorsRouteTemplatingBundle
+# RouteTemplatingBundle
 
 A Symfony bundle for route templating
 
@@ -14,7 +14,7 @@ A Symfony bundle for route templating
 
 ## Installation
 
-`PHPMentorsRouteTemplatingBundle` can be installed using [Composer](http://getcomposer.org/).
+RouteTemplatingBundle can be installed using [Composer](http://getcomposer.org/).
 
 First, add the dependency to `phpmentors/route-templating-bundle` into your `composer.json` file as the following:
 
