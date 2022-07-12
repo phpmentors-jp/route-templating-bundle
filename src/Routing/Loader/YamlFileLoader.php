@@ -24,7 +24,7 @@ class YamlFileLoader extends \Symfony\Component\Routing\Loader\YamlFileLoader
     /**
      * {@inheritdoc}
      */
-    public function import($resource, $type = null, $ignoreErrors = false, $sourceResource = null)
+    public function import($resource, string $type = null, bool $ignoreErrors = false, string $sourceResource = null, $exclude = null)
     {
         $routeCollection = parent::import($resource, $type, $ignoreErrors, $sourceResource);
         $copyAs = $this->copyAs[count($this->copyAs) - 1];
@@ -43,26 +43,9 @@ class YamlFileLoader extends \Symfony\Component\Routing\Loader\YamlFileLoader
     /**
      * {@inheritdoc}
      */
-    public function load($file, $type = null)
-    {
-        $availableKeysProperty = new \ReflectionProperty(\Symfony\Component\Routing\Loader\YamlFileLoader::class, 'availableKeys');
-        $availableKeysProperty->setAccessible(true);
-        $availableKeys = $availableKeysProperty->getValue();
-        if (!in_array('copy_as', $availableKeys)) {
-            $availableKeys[] = 'copy_as';
-            $availableKeysProperty->setValue(null, $availableKeys);
-        }
-        $availableKeysProperty->setAccessible(false);
-
-        return parent::load($file, $type);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     protected function parseImport(RouteCollection $collection, array $config, $path, $file)
     {
-        $this->copyAs[] = isset($config['copy_as']) ? $config['copy_as'] : null;
+        $this->copyAs[] = isset($config['options']['copy_as']) ? $config['options']['copy_as'] : null;
 
         parent::parseImport($collection, $config, $path, $file);
     }
