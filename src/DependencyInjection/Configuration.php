@@ -22,8 +22,8 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $treeBuilder->root('phpmentors_route_templating');
+        $treeBuilder = new TreeBuilder('phpmentors_route_templating');
+        $treeBuilder->getRootNode();
 
         return $treeBuilder;
     }
